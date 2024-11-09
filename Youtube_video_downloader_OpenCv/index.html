@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Downloader</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        .loading-message {
+            display: none; /* Hidden by default */
+            text-align: center;
+            margin-top: 15px;
+            color: #007bff; /* Bootstrap primary color */
+        }
+
+        @media (max-width: 500px) {
+            form {
+                width: calc(100% - 40px);
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Video Downloader and Player</h1>
+    <form id="downloadForm" action="/download" method="post">
+        <label for="url">Video URL:</label>
+        <input type="text" id="url" name="url" required>
+
+        <label for="output_name">Output File Name:</label>
+        <input type="text" id="output_name" name="output_name" placeholder="Enter file name without extension" required>
+
+        <input type="submit" value="Download and Play">
+    </form>
+
+    <div class="loading-message" id="loadingMessage">Downloading... Please wait.</div>
+    
+
+    <script>
+        document.getElementById('downloadForm').addEventListener('submit', function() {
+            // Show the loading message
+            document.getElementById('loadingMessage').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
